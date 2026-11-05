@@ -38,11 +38,12 @@ def create_app(settings: Optional[Settings] = None, groq: Optional[GroqService] 
     app.state.container = container
 
     app.add_middleware(
-        CORSMiddleware,
-        allow_origins=settings.cors_origin_list,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
     @app.exception_handler(AppError)
     async def app_error_handler(_: Request, exc: AppError):
