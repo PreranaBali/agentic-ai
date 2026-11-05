@@ -1,5 +1,5 @@
 // All backend calls live here. The Groq key never reaches the browser: only the backend has it.
-const BASE = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000').replace(/\/$/, '');
+const BASE = 'https://agentic-ai-elhx.onrender.com';
 
 export class ApiError extends Error {
   constructor(message, code, status) {
